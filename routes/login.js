@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 exports.submit = (req, res, next) => {
-  const data = req.body.user;
+  const data = req.body.user; // bodyParser会将表单提交解析成格式化数据
   User.authenticate(data.name, data.pass, (err, user) => {
     if (err) return next(err);
     if (user) {
